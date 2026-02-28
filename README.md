@@ -161,7 +161,54 @@ Minimum maliyet ile kaç araç kullanılarak taşıma işlemi tamamlanabilir? Ge
 - React Router
 - Axios
 - Leaflet (Harita)
+# Kocaeli Cargo Route Planner
 
-## Lisans
+## Overview
+Kocaeli Cargo Route Planner is a web-based logistics optimization system that calculates efficient cargo delivery routes from Kocaeli districts to a central hub using structured JSON scenario data.
 
-Bu proje Kocaeli Üniversitesi Yazılım Laboratuvarı dersi için geliştirilmiştir.
+The system applies heuristic optimization techniques to minimize cost and respect vehicle capacity constraints.
+
+---
+
+## Features
+- Cargo distribution planning
+- Route optimization using Genetic Algorithm + 2-opt
+- Vehicle capacity management
+- Unlimited / Limited vehicle modes
+- JSON-based scenario loading
+- Real road distance calculation via OSRM
+- Map visualization (OpenStreetMap)
+
+---
+
+## Technologies Used
+- Node.js
+- Express
+- SQLite (better-sqlite3)
+- React
+- Leaflet (OpenStreetMap)
+- OSRM API
+- JSON data modeling
+
+---
+
+## Optimization Approach
+- Genetic Algorithm for global route search
+- 2-opt for local route improvement
+- Cost-based evaluation (distance + vehicle cost)
+- No brute-force search
+
+---
+
+## Data Model
+Cargo scenarios are generated from structured JSON files.
+
+Example:
+
+```json
+{
+  "Basiskele": { "cargo_count": 10, "weight_kg": 120 },
+  "Cayirova": { "cargo_count": 8, "weight_kg": 80 },
+  "Izmit": { "cargo_count": 14, "weight_kg": 160 }
+}
+
